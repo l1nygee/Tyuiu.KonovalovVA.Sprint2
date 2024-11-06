@@ -27,10 +27,16 @@ namespace Tyuiu.KonovalovVA.Sprint2.Task6.V12.Lib
             }
             if (n == 1)
             {
-                if (m == 1) return (g - 1) + "." + "12" +"." + "31";
-                else return g + "." + (m - 1) + "." + daysc;
+                if (m == 1) return  "31" +"." + "12" + "." + (g - 1);
+                else if (m<10) return daysc + "." + '0'+(m - 1) + "." + g;
+                else return daysc + "." + (m - 1) + "." + g;
             }
-            else return g + "." + m + "." + (n - 1);
+            if (n <= 10)
+            {
+                if (m < 10) return "0" + (n - 1) + "." + '0' + m + "." + g;
+                return "0" + (n - 1) + "." + m + "." + g;
+            }
+            return (n - 1) + "." + m + "." + g;
         }
     }
 }
